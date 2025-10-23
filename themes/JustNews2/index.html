@@ -1,113 +1,448 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="renderer" content="webkit">
-		<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width,viewport-fit=cover">
-		<title>{{ &title }}</title>
-		<meta name="keywords" content="{{ &keyWords }}" />
-		<meta name="description" content="{{ &OPT.siteDescription }}" />
+<!doctype html>
+<html class="no-js" lang="zxx">
 
-		<link rel='stylesheet' id='stylesheet-css' href='https://cdn.jsdelivr.net/gh/gdtool/cloudflare-workers-blog@master/themes/JustNews/files/main.css' type='text/css' media='all' />
-		<link rel='stylesheet' id='font-awesome-css' href='https://cdn.jsdelivr.net/gh/gdtool/cloudflare-workers-blog@master/themes/JustNews/files/font-awesome.css?ver=6.1.2' type='text/css' media='all' />
-		<link rel='stylesheet' id='wp-block-library-css' href='https://cdn.jsdelivr.net/gh/WordPress/WordPress@5.5.3/wp-includes/css/dist/block-library/style.min.css?ver=5.6' type='text/css' media='all' />
-		<link rel='stylesheet' id='wp-components-css' href='https://cdn.jsdelivr.net/gh/WordPress/WordPress@5.5.3/wp-includes/css/dist/components/style.min.css?ver=5.6' type='text/css' media='all' />
-		<link rel='stylesheet' id='wp-editor-font-css' href='https://fonts.geekzu.org/css?family=Noto+Serif%3A400%2C400i%2C700%2C700i&#038;ver=5.6' type='text/css' media='all' />
-		<link rel='stylesheet' id='wp-block-editor-css' href='https://cdn.jsdelivr.net/gh/WordPress/WordPress@5.5.3/wp-includes/css/dist/block-editor/style.min.css?ver=5.6' type='text/css' media='all' />
-		<link rel='stylesheet' id='wp-nux-css' href='https://cdn.jsdelivr.net/gh/WordPress/WordPress@5.5.3/wp-includes/css/dist/nux/style.min.css?ver=5.6' type='text/css' media='all' />
-		<link rel='stylesheet' id='wp-editor-css' href='https://cdn.jsdelivr.net/gh/WordPress/WordPress@5.5.3/wp-includes/css/dist/editor/style.min.css?ver=5.6' type='text/css' media='all' />
-		<link rel='stylesheet' id='mux_video_block_style-css' href='https://cdn.jsdelivr.net/gh/newexsexy/wp@master/wp-content/plugins/ilab-media-tools/public/blocks/mediacloud-mux.blocks.style.min.css' type='text/css' media='all' />
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ &title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="{{ &keyWords }}" />
+    <meta name="description" content="{{ &OPT.siteDescription }}" />
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Bicon css -->
+    <link rel="stylesheet" href="css/bicon.min.css">
+    <!-- Themify css -->
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- Iconfont css -->
+    <link rel="stylesheet" href="css/icofont.css">
+     <!-- Animate css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Animate headline css -->
+    <link rel="stylesheet" href="css/animated-headline.css">
+    <!-- Jquery magnific popup css -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- youtube player css -->
+    <link rel="stylesheet" href="css/jquery.mb.YTPlayer.min.css">
+    <!-- Meanmenu css -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <!-- Owl carousel css -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="css/default.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="css/responsive.css">
 
-		<link rel='stylesheet' id='emojify-css' href='https://cdn.jsdelivr.net/npm/emojify.js@1.1.0/dist/css/basic/emojify.min.css?ver=1.1.0' type='text/css' media='all' />
-		<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
-		<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/WordPress/WordPress@5.6/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
-		<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/wpcom-cn/assets/fonts/icons-2.6.4.js?ver=6.1.2' id='wpcom-icons-js'></script>
+    <!-- Modernizer js -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    {{ &OPT.codeBeforHead }}
+</head>
 
-		{{ &OPT.codeBeforHead }}
-	</head>
-	<body class="archive paged category category-zhishi category-5 paged-2 category-paged-2 lang-cn el-boxed">
-		<header class="header">
-			<div class="container clearfix">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="icon-bar icon-bar-1"></span>
-						<span class="icon-bar icon-bar-2"></span>
-						<span class="icon-bar icon-bar-3"></span>
-					</button>
-					<div class="logo">
-						{{ #OPT.logo }}
-						<a href="/" rel="home"><img src="{{ &OPT.logo }}" alt="{{ &OPT.siteName }}"></a>
-						{{ /OPT.logo }}
-						
-						{{ ^OPT.logo }}
-						<a href="/" rel="home"><img src="https://cdn.jsdelivr.net/gh/gdtool/cloudflare-workers-blog@master/themes/JustNews/files/logo2.png" alt="请自定义OPT.logo"></a>
-						{{ /OPT.logo }}
-					</div>
-				</div>
-				<div class="collapse navbar-collapse">
-					<nav class="navbar-left primary-menu">
-						<ul id="menu-%e5%af%bc%e8%88%aa" class="nav navbar-nav wpcom-adv-menu">
-							{{ #widgetMenuList }}
-								<li class="menu-item"><a href="{{ &url }}">{{ &title }}</a></li>
-							{{ /widgetMenuList }}
-						</ul>
-					</nav>
-					<div class="navbar-action pull-right">
-						<div id="j-user-wrap">
-							<a class="login cur" href="/admin">登录</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-		<div id="wrap">
-			<div class="container wrap">
-				<div class="main">
-					<div class="sec-panel sec-panel-default">
-						<div class="sec-panel-body">
-							<ul class="post-loop post-loop-default cols-0">
-								{{ #articleList }}
-								<li class="item" id="post-{{&id}}">
-									<div class="item-img">
-										<a class="item-img-inner" href="{{ &url }}" title="{{ &title }}" rel="bookmark">
-											<img width="437" height="300" src="{{ &img }}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy" alt="{{ &title }}" title="{{ &title }}" data-original="{{ &img }}" /></a>
-										{{ #category }}
-											<a class="item-category" href="/category/{{&.}}" >{{&.}}</a>
-										{{ /category }}
-										
-									</div>
-									<div class="item-content">
-										<h2 class="item-title">
-											<a href="{{ &url }}" rel="bookmark">{{ &title }}</a></h2>
-										<div class="item-excerpt">
-											<p>{{ &contentText }} ...</p>
-										</div>
-										<div class="item-meta">
-											<span class="item-meta-li date">{{ &createDate10 }}</span>
-											<div class="item-meta-right">
-												<span class="item-meta-li views" title="阅读数">
-													<i class="wpcom-icon wi">
-														<svg aria-hidden="true">
-															<use xlink:href="#wi-eye"></use>
-														</svg>
-													</i>
-													<span class="waline-pageview-count" data-path="{{ &url }}" />
-												</span>
-											</div>
-												
-												
-										</div>
-									</div>
-								</li>
-								{{ /articleList }}
-		
-							</ul>
-							<ul class="pagination">
-								{{ #pageNewer }}
+<body>
+    <!--[if lte IE 9]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+
+    <!-- Main Wrapper Start Here -->
+    <div class="wrapper">
+        <!-- Main Header Area Start -->
+        <header class="absolute-header trigger-menu header-sticky universal-header">
+            <div class="container">
+                <div class="main-header">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <!-- Logo Start -->
+                            <div class="logo">
+                                <a href="index.html"><img src="img/logo/logo2.png" alt="brand-logo"></a>
+                            </div>
+                            <!-- Logo End -->
+                        </div>
+                        <div class="col-md-9">
+                            <!-- Trigger Menu Area Start -->
+							<div class="slide-menu-wrapper d-none d-lg-block float-right">
+                                    <button class="trigger-menu-icon">
+									<span></span>
+									<span></span>
+									<span></span>
+								</button>
+								<nav class="menu slide-menu-inner">
+									<ul class="primary-menu-list d-flex align-items-center">
+										 <li class="active"><a href="index.html">HOME.</a>
+                                            <!-- Dropdown Start -->
+                                            <ul class="ht-dropdown">
+                                                <li><a href="index.html">Home Default</a></li>
+                                                <li><a href="index-parallax.html">Home Parallax</a></li>
+                                                <li><a href="index-partticle.html">Home Particle</a></li>
+                                                <li><a href="index-video.html">Home Video</a></li>
+                                                <li><a href="index-box-layout.html">Home Box Layout</a></li>
+                                            </ul>
+                                            <!-- Dropdown End -->
+                                        </li>
+                                        <li><a href="about.html">ABOUT.</a></li>
+                                        {{ #widgetMenuList }}
+                                        <li><a href="{{ &url }}">{{ &title }}.</a></li>
+                                        {{ /widgetMenuList }}
+                                        <li><a class="login cur" href="/admin">登录</a></li>
+                                        <li><a href="portfolio.html">PORTFOLIO.</a>
+                                            <!-- Dropdown Start -->
+                                            <ul class="ht-dropdown">
+                                                <li><a href="portfolio.html">Portfolio</a></li>
+                                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                                            </ul>
+                                            <!-- Dropdown End -->
+                                        </li>
+                                        <li><a href="service.html">SERVICES.</a></li>
+                                        <li><a href="blog.html"> Blog.</a>
+                                            <!-- Dropdown Start -->
+                                            <ul class="ht-dropdown">
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog-details.html">Blog details</a></li>
+                                            </ul>
+                                            <!-- Dropdown End -->
+                                        </li>
+                                        <li><a href="contact.html"> CONTACT.</a></li>
+									</ul>
+								</nav>
+							</div>
+				            <!-- Trigger Menu Area End -->
+                        </div>
+                    </div>
+                    <!-- Mobile Menu Start -->
+                    <div class="mobile-menu d-block d-lg-none">
+                        <nav>
+                            <ul>
+                                <li><a href="index.html">home</a>
+                                    <!-- Home Version Dropdown Start -->
+                                    <ul>
+                                        <li><a href="index.html">Home Default</a></li>
+                                        <li><a href="index-parallax.html">Home Parallax</a></li>
+                                        <li><a href="index-partticle.html">Home Particle</a></li>
+                                        <li><a href="index-video.html">Home Video</a></li>
+                                        <li><a href="index-box-layout.html">Home Box Layout</a></li>
+                                    </ul>
+                                    <!-- Home Version Dropdown End -->
+                                </li>
+                                <li><a href="about.html">about us</a></li>
+                                 {{ #widgetMenuList }}
+                                <li><a href="{{ &url }}">{{ &title }}</a></li>
+                                 {{ /widgetMenuList }}
+                                 <li><a class="login cur" href="/admin">登录</a></li>
+                                <li><a href="blog.html">Blog</a>
+                                    <!-- Mobile Menu Dropdown Start -->
+                                    <ul>
+                                        <li><a href="blog.html">blog</a></li>
+                                        <li><a href="blog-details.html">blog details</a></li>
+                                    </ul>
+                                    <!-- Mobile Menu Dropdown End -->
+                                </li>
+                                <li><a href="portfolio.html">portfolio</a>
+                                    <!-- Dropdown Start -->
+                                    <ul>
+                                        <li><a href="portfolio.html">Portfolio</a></li>
+                                        <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                                    </ul>
+                                    <!-- Dropdown End -->
+                                </li>
+                                <li><a href="service.html">service</a></li>
+                                <li><a href="contact.html">contact us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Mobile Menu End -->
+                </div>
+            </div>
+        </header>
+        <!-- Main Header Area End -->
+      
+        <!-- Banner Area Start -->
+        <div class="slider-area cloud-white-bg full-screen center-items ">
+            <div class="container">
+                <div class="single-man man-style-two wow fadeInRight d-none d-xl-block" data-wow-duration="1.5s" data-wow-delay=".3s">
+                    <img class="img" src="img/slider/man2.png" alt="single-man">
+                </div>
+                <div class="slider-text slider-triangle position-relative animation-style-01">
+                    <h5>HAY! THERE</h5>
+                    <h1>I AM Luka Dončić </h1>
+                    <h2 class="cd-headline clip is-full-width">a professional
+                        <span class="cd-words-wrapper">
+                            <b class="is-visible">designer</b>
+                            <b>developer</b>
+                            <b>Freelancer</b>
+                            <b>trainer</b>
+                            <b>employer</b>
+                        </span>
+                    </h2>
+                    <a class="transparent-btn" href="#">关注我</a>
+                </div>
+            </div>
+            <ul class="social-footer slider-social social-style-two">
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <!-- Banner Area End -->
+
+        <!-- Blog Area Start -->
+        <div class="blog-area ptb-150 off-white-bg">
+            <div class="container">
+                <div class="row">
+                    <!-- Single Blog Start -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-blog">
+                            <div class="blog-inner">
+                                <div class="blog-header">
+                                    <div class="blog-img">
+                                        <a href="blog-details.html"><img src="img/blog/b1.jpg" alt="blog-img"></a>
+                                    </div>
+                                    <div class="blog-desc">
+                                        <ul class="meta-box d-flex">
+                                            <li class="meta-date"><span><i class="fa fa-calendar" aria-hidden="true"></i>oct 27, 2018</span></li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>By <a href="#"> Smarto</a></li>
+                                        </ul>
+                                        <div class="blog-content">
+                                            <h6 class="blog-title"><a href="blog-details.html">NEW METUS ET MAURIS COETOS NEW METUS OVER</a></h6>
+                                            <p>Interior designer Amber Lewis’s blog takes you inside the creative workings of her Los Angeles based studio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-btn">
+                                    <a class="read-more" href="#">Read More</a>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Blog End -->
+                   
+                    <!-- Single Blog Start -->
+                     {{ #articleList }}
+                    <div class="col-lg-4 col-md-6">
+                         <div class="single-blog">
+                            <div class="blog-inner">
+                                <div class="blog-header">
+                                    <div class="blog-img">
+                                        <a  href="{{ &url }}" title="{{ &title }}" rel="bookmark"><img src="{{ &img }}" alt="blog-img" alt="{{ &title }}" title="{{ &title }}" data-original="{{ &img }}"></a>
+                                    </div>
+                                    <div class="blog-desc">
+                                        <ul class="meta-box d-flex">
+                                            <li class="meta-date"><span><i class="fa fa-calendar" aria-hidden="true"></i>{{ &createDate10 }}</span></li>
+                                            <li><i class="fa fa-inbox" aria-hidden="true"></i>
+                                            {{ #category }}
+											<a  href="/category/{{&.}}" >{{&.}}</a>
+                                            {{ /category }}
+                                            </li>
+                                        </ul>
+                                        <div class="blog-content">
+                                            <h6 class="blog-title"><a href="{{ &url }}">{{ &title }}</a></h6>
+                                            <p>{{ &contentText }} ...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-btn">
+                                    <a class="read-more" href="{{ &url }}">Read More</a>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ /articleList }}
+                    <!-- Single Blog End -->
+                    <!-- Single Blog Start -->
+                    <div class="col-lg-4 col-md-6">
+                         <div class="single-blog">
+                            <div class="blog-inner">
+                                <div class="blog-header">
+                                    <div class="blog-img">
+                                        <a href="blog-details.html"><img src="img/blog/b3.jpg" alt="blog-img"></a>
+                                    </div>
+                                    <div class="blog-desc">
+                                        <ul class="meta-box d-flex">
+                                            <li class="meta-date"><span><i class="fa fa-calendar" aria-hidden="true"></i>Sepct 27, 2018</span></li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>By <a href="#"> Smarto</a></li>
+                                        </ul>
+                                        <div class="blog-content">
+                                            <h6 class="blog-title"><a href="blog-details.html">5 Things You Didn’t Know About Kim Kardashian West</a></h6>
+                                            <p>Interior designer Amber Lewis’s blog takes you inside the creative workings of her Los Angeles based studio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-btn">
+                                    <a class="read-more" href="#">Read More</a>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Blog End -->
+                    <!-- Single Blog Start -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-blog">
+                            <div class="blog-inner">
+                                <div class="blog-header">
+                                    <div class="blog-img">
+                                        <a href="blog-details.html"><img src="img/blog/b4.jpg" alt="blog-img"></a>
+                                    </div>
+                                    <div class="blog-desc">
+                                        <ul class="meta-box d-flex">
+                                            <li class="meta-date"><span><i class="fa fa-calendar" aria-hidden="true"></i>oct 27, 2018</span></li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>By <a href="#"> Smarto</a></li>
+                                        </ul>
+                                        <div class="blog-content">
+                                            <h6 class="blog-title"><a href="blog-details.html">SOME COETOS  NEW METUS ET MAURIS NEW METUS OVER COETOS</a></h6>
+                                            <p>Interior designer Amber Lewis’s blog takes you inside the creative workings of her Los Angeles based studio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-btn">
+                                    <a class="read-more" href="#">Read More</a>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Blog End -->
+                    <!-- Single Blog Start -->
+                    <div class="col-lg-4 col-md-6">
+                         <div class="single-blog">
+                            <div class="blog-inner">
+                                <div class="blog-header">
+                                    <div class="blog-img">
+                                        <a href="blog-details.html"><img src="img/blog/b5.jpg" alt="blog-img"></a>
+                                    </div>
+                                    <div class="blog-desc">
+                                        <ul class="meta-box d-flex">
+                                            <li class="meta-date"><span><i class="fa fa-calendar" aria-hidden="true"></i>Jun 17, 2018</span></li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>By <a href="#"> Smarto</a></li>
+                                        </ul>
+                                        <div class="blog-content">
+                                            <h6 class="blog-title"><a href="blog-details.html">NEW METUS ET MAURIS COETOS NEW METUS OVER</a></h6>
+                                            <p>Interior designer Amber Lewis’s blog takes you inside the creative workings of her Los Angeles based studio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-btn">
+                                    <a class="read-more" href="#">Read More</a>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Blog End -->
+                    <!-- Single Blog Start -->
+                    <div class="col-lg-4 col-md-6">
+                         <div class="single-blog">
+                            <div class="blog-inner">
+                                <div class="blog-header">
+                                    <div class="blog-img">
+                                        <a href="blog-details.html"><img src="img/blog/b3.jpg" alt="blog-img"></a>
+                                    </div>
+                                    <div class="blog-desc">
+                                        <ul class="meta-box d-flex">
+                                            <li class="meta-date"><span><i class="fa fa-calendar" aria-hidden="true"></i>Sepct 27, 2018</span></li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>By <a href="#"> Smarto</a></li>
+                                        </ul>
+                                        <div class="blog-content">
+                                            <h6 class="blog-title"><a href="blog-details.html">5 Things You Didn’t Know About Kim Kardashian West</a></h6>
+                                            <p>Interior designer Amber Lewis’s blog takes you inside the creative workings of her Los Angeles based studio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-btn">
+                                    <a class="read-more" href="#">Read More</a>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Blog End -->
+                    <!-- Single Blog Start -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-blog">
+                            <div class="blog-inner">
+                                <div class="blog-header">
+                                    <div class="blog-img">
+                                        <a href="blog-details.html"><img src="img/blog/b5.jpg" alt="blog-img"></a>
+                                    </div>
+                                    <div class="blog-desc">
+                                        <ul class="meta-box d-flex">
+                                            <li class="meta-date"><span><i class="fa fa-calendar" aria-hidden="true"></i>oct 27, 2018</span></li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>By <a href="#"> Smarto</a></li>
+                                        </ul>
+                                        <div class="blog-content">
+                                            <h6 class="blog-title"><a href="blog-details.html">NEW METUS ET MAURIS COETOS NEW METUS OVER</a></h6>
+                                            <p>Interior designer Amber Lewis’s blog takes you inside the creative workings of her Los Angeles based studio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-btn">
+                                    <a class="read-more" href="#">Read More</a>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Blog End -->
+                    <!-- Single Blog Start -->
+                    <div class="col-lg-4 col-md-6">
+                         <div class="single-blog">
+                            <div class="blog-inner">
+                                <div class="blog-header">
+                                    <div class="blog-img">
+                                        <a href="blog-details.html"><img src="img/blog/b3.jpg" alt="blog-img"></a>
+                                    </div>
+                                    <div class="blog-desc">
+                                        <ul class="meta-box d-flex">
+                                            <li class="meta-date"><span><i class="fa fa-calendar" aria-hidden="true"></i>Jun 17, 2018</span></li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>By <a href="#"> Smarto</a></li>
+                                        </ul>
+                                        <div class="blog-content">
+                                            <h6 class="blog-title"><a href="blog-details.html">5 Things You Didn’t Know About Kim Kardashian West</a></h6>
+                                            <p>Interior designer Amber Lewis’s blog takes you inside the creative workings of her Los Angeles based studio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-btn">
+                                    <a class="read-more" href="#">Read More</a>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Blog End -->
+                    <!-- Single Blog Start -->
+                    <div class="col-lg-4 col-md-6">
+                         <div class="single-blog">
+                            <div class="blog-inner">
+                                <div class="blog-header">
+                                    <div class="blog-img">
+                                        <a href="blog-details.html"><img src="img/blog/b4.jpg" alt="blog-img"></a>
+                                    </div>
+                                    <div class="blog-desc">
+                                        <ul class="meta-box d-flex">
+                                            <li class="meta-date"><span><i class="fa fa-calendar" aria-hidden="true"></i>Sepct 27, 2018</span></li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>By <a href="#"> Smarto</a></li>
+                                        </ul>
+                                        <div class="blog-content">
+                                            <h6 class="blog-title"><a href="blog-details.html">SOME COETOS  NEW METUS ET MAURIS NEW METUS OVER COETOS</a></h6>
+                                            <p>Interior designer Amber Lewis’s blog takes you inside the creative workings of her Los Angeles based studio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blog-btn">
+                                    <a class="read-more" href="#">Read More</a>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Blog End -->
+                </div>
+                <div class="breadcrumb-area text-center mt-20">
+                    <ul class="d-inline-flex pfolio-breadcrumb-list">
+                        {{ #pageNewer }}
 								<li class="prev">
 									<a href="{{ &url }}" class="prev">
-										<i class="wpcom-icon wi">
+										<i class="fa fa-long-arrow-left" aria-hidden="true"></i><i class="wpcom-icon wi">
 											<svg aria-hidden="true"><use xlink:href="#wi-arrow-left"></use></svg>
 										</i>
 										<span>上一页</span></a>
@@ -117,206 +452,129 @@
 								{{ #pageOlder }}
 								<li class="next">
 									<a href="{{ &url }}" class="next">
-										<span>下一页</span>
+										<span>下一页</span><i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 										<i class="wpcom-icon wi">
 											<svg aria-hidden="true"><use xlink:href="#wi-arrow-right"></use></svg>
 										</i>
 									</a>
 								</li>
 								{{ /pageOlder }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Blog Area End -->
 
-							</ul>
-						</div>
-					</div>
-					<div id="comments" class="entry-comments">
-						{{ &OPT.commentCode }}
-					</div>
-				</div>
-				<aside class="sidebar">
-					<div id="wpcom-post-thumb-2" class="widget widget_post_thumb">
-						<h3 class="widget-title">
-							<span>近期文章</span></h3>
-						<ul>
-							{{ #widgetRecentlyList }}
-							<li class="item">
-								<div class="item-img">
-									<a class="item-img-inner" href="{{ &url }}" title="{{ &title }}">
-										<img width="480" height="264" src="{{ &img }}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image j-lazy" alt="" title="" data-original="{{ &img }}" /></a>
-								</div>
-								<div class="item-content">
-									<p class="item-title">
-										<a href="{{ &url }}" title="{{ &title }}">{{ &title }}</a></p>
-									<p class="item-date">{{ &createDate10 }}</p></div>
-							</li>
-							{{ /widgetRecentlyList }}									
-						</ul>
-					</div>
-					<div id="categories-3" class="widget widget_categories">
-						<h3 class="widget-title">
-							<span>分类目录</span></h3>
-						<ul>
-							{{ #widgetCategoryList }}
-							<li class="cat-item cat-item-5 current-cat">
-								<a aria-current="page" href="/category/{{&.}}">{{&.}}</a></li>
-							{{ /widgetCategoryList }}
-						</ul>
-					</div>
-					<div id="tag_cloud-3" class="widget widget_tag_cloud">
-						<h3 class="widget-title">
-							<span>标签</span></h3>
-						<div class="tagcloud">
-							{{ #widgetTagsList }}
-							<a href="/tags/{{&.}}" class="tag-cloud-link tag-link-6 tag-link-position-1" style="font-size: 8pt;" aria-label="{{&.}}">{{&.}}</a>
-							{{ /widgetTagsList }}
-						</div>
-					</div>
+        <!-- Footer Start -->
+        <footer class="footer-area ptb-100 dark-black-bg">
+            <div class="container">
+                <div class="footer-top text-center">
+                    <div class="logo mb-30">
+                        <a href="index.html"><img src="img/logo/logo.png" alt="brand-logo"></a>
+                    </div>
+                    <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the monen vai kemon asen </p>
+                </div>
+                <!-- Footer Bottom Start -->
+                <div class="footer-bottom">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="copyright-text mb-sm-30 text-center text-md-left">
+                                <p>{{ &OPT.copyRight }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="social-footer d-flex justify-content-center justify-content-lg-end">
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Bottom End -->
+            </div>      
+        </footer>
+        <!-- Footer End -->
+        <!-- The Modal Start -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-large">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <button type="button" class="close modal-close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-12">
+                            <div class="cus-modal-thumb mb-sm-40">
+                                <img src="img/portfolio/p1.jpg" alt="modal thumb">
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-6 col-12">
+                            <div class="cus-modal-content ">
+                                <h2 class="cus-modal-title">Portfolio Title Goes Here</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, officia. Ut culpa fugit consequatur, rem aliquam hic consequuntur animi architecto ipsum, molestias nemo esse error repellat dolore quod veritatis! Quam. Consequatur, rem aliquam hic consequuntur</p>
+                                <p>architecto ipsum, molestias nemo esse error repellat dolore quod veritatis! Quam. Consequatur, rem aliquam hic consequuntur animi architecto ipsum, molestias nemo esse error repellat dolore quod veritatis! Quam.</p>
+                                <p>Category: <b><a href="portfolio-modal.html">Lifestyle</a></b></p>
+                                <div class="social-icons social-icons--rounded">
+                                    <ul>
+                                        <li class="facebook">
+                                            <a href="#"><span class="ti-facebook"></span></a>
+                                        </li>
+                                        <li class="twitter">
+                                            <a href="#"><span class="ti-twitter-alt"></span></a>
+                                        </li>
+                                        <li class="vimeo">
+                                            <a href="#"><span class="ti-vimeo-alt"></span></a>
+                                        </li>
+                                        <li class="pinterest">
+                                            <a href="#"><span class="ti-pinterest"></span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- The Modal End -->
+    </div>
+    <!-- Main Wrapper End Here -->
 
-					<div id="linkcat-0" class="widget widget_links">
-						<h3 class="widget-title">
-							<span>链接</span></h3>
-						<ul class='xoxo blogroll'>
-							{{ #widgetLinkList }}
-									<li><a href="{{ &url }}" target="_blank">{{ &title }}</a></li>
-							{{ /widgetLinkList }}
-						</ul>
-					</div>
-					{{ &OPT.widgetOther }}
-				</aside>
-			</div>
-		</div>
-		<footer class="footer">
-			<div class="container">
-				<div class="clearfix">
-					<div class="footer-col footer-col-copy">
-						<div class="copyright">
-							<p>{{ &OPT.copyRight }}</p>
-						</div>
-					</div>
-					<div class="footer-col footer-col-sns">
-						<div class="footer-sns"></div>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<div class="action action-style-0 action-color-0 action-pos-0" style="bottom:20%;">
-			<div class="action-item gotop j-top">
-				<i class="wpcom-icon wi action-item-icon">
-					<svg aria-hidden="true">
-						<use xlink:href="#wi-arrow-up-2"></use>
-					</svg>
-				</i>
-			</div>
-		</div>
-		<link rel='stylesheet' id='lazyload-spinner-css' href='https://cdn.jsdelivr.net/gh/gdtool/cloudflare-workers-blog@master/themes/JustNews/files/lazyload.css?ver=3.4.9' type='text/css' media='all' />
-		<script type='text/javascript' id='main-js-extra'>/* <![CDATA[ */
-			var _wpcom_js = {
-				"webp": "",
-				"ajaxurl": "",
-				"theme_url": "https://cdn.jsdelivr.net/gh/gdtool/cloudflare-workers-blog@master/themes/JustNews/",
-				"slide_speed": "5000",
-				"user_card_height": "356",
-				"video_height": "482",
-				"fixed_sidebar": "1",
-				"login_url": "/admin",
-				"register_url": "/admin",
-				"errors": {
-					"require": "\u4e0d\u80fd\u4e3a\u7a7a",
-					"email": "\u8bf7\u8f93\u5165\u6b63\u786e\u7684\u7535\u5b50\u90ae\u7bb1",
-					"pls_enter": "\u8bf7\u8f93\u5165",
-					"password": "\u5bc6\u7801\u5fc5\u987b\u4e3a6~32\u4e2a\u5b57\u7b26",
-					"passcheck": "\u4e24\u6b21\u5bc6\u7801\u8f93\u5165\u4e0d\u4e00\u81f4",
-					"phone": "\u8bf7\u8f93\u5165\u6b63\u786e\u7684\u624b\u673a\u53f7\u7801",
-					"terms": "Please read and agree with the terms",
-					"sms_code": "\u9a8c\u8bc1\u7801\u9519\u8bef",
-					"captcha_verify": "\u8bf7\u70b9\u51fb\u6309\u94ae\u8fdb\u884c\u9a8c\u8bc1",
-					"captcha_fail": "\u70b9\u51fb\u9a8c\u8bc1\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5",
-					"nonce": "\u968f\u673a\u6570\u6821\u9a8c\u5931\u8d25",
-					"req_error": "\u8bf7\u6c42\u5931\u8d25"
-				},
-				"follow_btn": "<i class=\"wpcom-icon wi\"><svg aria-hidden=\"true\"><use xlink:href=\"#wi-add\"><\/use><\/svg><\/i>\u5173\u6ce8",
-				"followed_btn": "\u5df2\u5173\u6ce8",
-				"user_card": "1"
-			};
-			/* ]]> */
-			</script>
-		<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/gdtool/cloudflare-workers-blog@master/themes/JustNews/files/main.js?ver=6.1.2' id='main-js'></script>
-		<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/WordPress/WordPress@5.5.3/wp-includes/js/clipboard.min.js?ver=5.6' id='clipboard-js'></script>
-		<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/emojify.js@1.1.0/dist/js/emojify.min.js?ver=1.1.0' id='emojify-js'></script>
-		<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/gdtool/cloudflare-workers-blog@master/themes/JustNews/files/wp-embed.js?ver=6.1.2' id='wp-embed-js'></script>
-		<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/gdtool/cloudflare-workers-blog@master/themes/JustNews/files/lazySizesConfig.js?ver=3.4.9' id='lazysizes-config-js'></script>
-		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/plugins/unveilhooks/ls.unveilhooks.min.js?ver=5.6' id='unveilhooks-js'></script>
-		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/plugins/bgset/ls.bgset.min.js?ver=5.6' id='bgset-js'></script>
-		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js?ver=5.6' id='lazysizes-js'></script>
-		<script type='text/javascript' id='fifu-image-js-js-extra'>/* <![CDATA[ */
-			var fifuImageVars = {
-				"fifu_lazy": "1",
-				"fifu_woo_lbox_enabled": "1",
-				"fifu_woo_zoom": "inline",
-				"fifu_is_product": "",
-				"fifu_is_flatsome_active": "",
-				"fifu_rest_url": "",
-				"fifu_nonce": "96a15ffec7"
-			};
-			/* ]]> */
-			</script>
-		<script type='text/javascript' src='https://cdn.jsdelivr.net/gh/gdtool/cloudflare-workers-blog@master/themes/JustNews/files/image.js?ver=3.4.9' id='fifu-image-js-js'></script>
-
-		<script id="module-clipboard">(function($) {
-				$(function() {
-					var pre = document.getElementsByTagName("pre");
-					var pasteContent = document.getElementById("paste-content");
-					var hasLanguage = false;
-					for (var i = 0; i < pre.length; i++) {
-						var codeClass = pre[i].children[0].className;
-						var isLanguage = codeClass.indexOf("language-");
-						var excludedCodeClassNames = ["language-katex", "language-seq", "language-sequence", "language-flow", "language-flowchart", "language-mermaid", ];
-						var isExcluded = excludedCodeClassNames.indexOf(codeClass);
-						if (isExcluded !== -1) {
-							isLanguage = -1;
-						}
-						if (isLanguage !== -1) {
-							var button = document.createElement("button");
-							button.className = "copy-button";
-							button.textContent = "Copy";
-							pre[i].appendChild(button);
-							hasLanguage = true;
-						}
-					};
-					if (hasLanguage) {
-						var copyCode = new ClipboardJS(".copy-button", {
-							target: function(trigger) {
-								return trigger.previousElementSibling;
-							}
-						});
-						copyCode.on("success",
-						function(event) {
-							event.clearSelection();
-							event.trigger.textContent = "Copied";
-							window.setTimeout(function() {
-								event.trigger.textContent = "Copy";
-							},
-							2000);
-						});
-					}
-				});
-			})(jQuery);</script>
-		<script id="module-emojify">(function($) {
-				$(function() {
-					if (typeof emojify !== "undefined") {
-						emojify.setConfig({
-							img_dir: "https://cdn.jsdelivr.net/npm/emojify.js@1.1.0/dist/images/basic",
-							blacklist: {
-								"classes": ["no-emojify"],
-								"elements": ["script", "textarea", "pre", "code"]
-							}
-						});
-						emojify.run();
-					} else {
-						console.log("[wp-githuber-md] emogify is undefined.");
-					}
-				});
-			})(jQuery);</script>
-		{{ &OPT.codeBeforBody }}
-	</body>
+    <!-- jquery 3.2.1 -->
+    <script src="js/vendor/jquery-3.2.1.min.js"></script>
+    <!-- animate headline js -->
+    <script src="js/animated-headline.js"></script>
+    <!-- youtube player js -->
+    <script src="js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- jquery appear js -->
+    <script src="js/jquery.appear.js"></script>
+    <!-- Particle scripts -->
+    <script src="js/particles.min.js"></script>
+    <!-- Parallax scripts -->
+    <script src="js/jquery.parallax-1.1.3.js"></script>
+    <!-- Wow js -->
+    <script src="js/wow.min.js"></script>
+    <!-- Mobile menu js -->
+    <script src="js/jquery.meanmenu.min.js"></script>
+    <!-- ScrollUp js -->
+    <script src="js/jquery.scrollUp.js"></script>
+    <!-- Image loaded js -->
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <!-- Isotope js -->
+    <script src="js/isotope.pkgd.min.js"></script>
+    <!-- Magnific js -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Bootstrap popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugin js -->
+    <script src="js/plugins.js"></script>
+    <!-- Main activaion js -->
+    <script src="js/main.js"></script>
+    
+</body>
 
 </html>
