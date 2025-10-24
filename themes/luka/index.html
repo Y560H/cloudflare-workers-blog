@@ -109,13 +109,11 @@
                 <div class="slider-text slider-triangle position-relative animation-style-01">
                     <h5>HAY! THERE</h5>
                     <h1>I AM Luka Dončić </h1>
-                    <h2 class="cd-headline clip is-full-width">a professional
+                    <h2 class="cd-headline clip is-full-width">本 赛 季 每 场
                         <span class="cd-words-wrapper">
-                            <b class="is-visible">designer</b>
-                            <b>developer</b>
-                            <b>Freelancer</b>
-                            <b>trainer</b>
-                            <b>employer</b>
+                            <b class="is-visible" >得 分：<span id="output1">--</span></b>
+                            <b >篮板：<span id="output2">--</span></b>
+                            <b >助攻：<span id="output3">--</span></b>
                         </span>
                     </h2>
                     <a class="transparent-btn" href="#">关注我</a>
@@ -267,7 +265,21 @@
     <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/plugins.js"></script>
     <!-- Main activaion js -->
     <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/main.js"></script>
-    
+    <script>
+
+     fetch('https://webws.365scores.com/web/athletes/?appTypeId=5&langId=141&timezoneName=Asia/Shanghai&userCountryId=79&athletes=53106&competitionId=103&fullDetails=true&topBookmaker=16') // 替换为你的 JSON 文件路径
+      .then(response => response.json())
+      .then(data => {
+       // document.getElementById('demo').innerText = JSON.stringify(data, null, 2);
+      document.getElementById("output1").innerHTML = JSON.stringify(Number(data.athletes[0].highlightStats[0].stats[0].value));
+      document.getElementById("output2").innerHTML = JSON.stringify(Number(data.athletes[0].highlightStats[0].stats[1].value));
+      document.getElementById("output3").innerHTML = JSON.stringify(Number(data.athletes[0].highlightStats[0].stats[2].value));
+      //document.getElementById("demo2").innerHTML = data.scores[1].name + " " + data.scores[1].score;
+      //document.getElementById("demo3").innerHTML = data.scores[2].name + " " + data.scores[2].score;
+      })
+      .catch(error => console.error('Error:', error));
+   
+</script>
 </body>
 
 </html>
