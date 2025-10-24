@@ -1,4 +1,4 @@
-> 
+>  本项目基于 gdtool/cloudflare-workers-blog 并参照了 
 >  这是一个运行在cloudflare workers 上的博客程序,使用 cloudflare KV作为数据库,无其他依赖.
 兼容静态博客的速度,以及动态博客的灵活性,方便搭建不折腾.很稳定
 
