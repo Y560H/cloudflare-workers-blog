@@ -1,0 +1,353 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ &articleSingle.title }} - {{ &OPT.siteName }}</title>
+    <meta name="keywords" content="{{ &keyWords }}" />
+	<meta name="description" content="{{ &OPT.siteDescription }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/img/favicon.ico">
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/font-awesome.min.css">
+    <!-- Bicon css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/bicon.min.css">
+    <!-- Themify css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/themify-icons.css">
+    <!-- Iconfont css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/icofont.css">
+     <!-- Animate css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/animate.css">
+    <!-- Animate headline css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/animated-headline.css">
+    <!-- Jquery magnific popup css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/magnific-popup.css">
+    <!-- youtube player css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/jquery.mb.YTPlayer.min.css">
+    <!-- Meanmenu css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/meanmenu.min.css">
+    <!-- Owl carousel css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/owl.carousel.min.css">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/bootstrap.min.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/default.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/style.css">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/css/responsive.css">
+
+    <!-- Modernizer js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/vendor/modernizr-3.5.0.min.js"></script>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+
+    <!-- Main Wrapper Start Here -->
+    <div class="wrapper">
+        <!-- Main Header Area Start -->
+        <header class="absolute-header trigger-menu header-sticky universal-header">
+            <div class="container">
+                <div class="main-header">
+                    <div class="row align-items-center">
+                        <div class="col-md-3">
+                            <!-- Logo Start -->
+                            <div class="logo">
+                                <a href="index.html"><img src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/img/logo2.png" alt="brand-logo"></a>
+                            </div>
+                            <!-- Logo End -->
+                        </div>
+                        <div class="col-md-9">
+                            <!-- Trigger Menu Area Start -->
+							<div class="slide-menu-wrapper d-none d-lg-block float-right">
+                                    <button class="trigger-menu-icon">
+									<span></span>
+									<span></span>
+									<span></span>
+								</button>
+								<nav class="menu slide-menu-inner">
+									<ul class="primary-menu-list d-flex align-items-center">
+
+                            {{ #widgetMenuList }}
+								<li class="menu-item"><a href="{{ &url }}">{{ &title }}</a></li>
+							{{ /widgetMenuList }}
+                           
+                            <li class="menu-item"> <a class="login cur" href="/admin">登录</a></li>
+									</ul>
+								</nav>
+							</div>
+				            <!-- Trigger Menu Area End -->
+                        </div>
+                    </div>
+                    <!-- Mobile Menu Start -->
+                    <div class="mobile-menu d-block d-lg-none">
+                        <nav>
+                            <ul>
+                            {{ #widgetMenuList }}
+								<li class="menu-item"><a href="{{ &url }}">{{ &title }}</a></li>
+							{{ /widgetMenuList }}
+                                <li class="menu-item"> <a class="login cur" href="/admin">登录</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Mobile Menu End -->
+                </div>
+            </div>
+        </header>
+        <!-- Main Header Area End -->
+        <!-- Banner Area Start -->
+        <div class="slider-area breadcrumb-bg">
+            <div class="container">
+                <div class="main-breadcrumb text-center">
+                    <h3 class="breadcrumb-heading">{{ &articleSingle.title }}</h3>
+                    <ol class="breadcrumb breadcrumb-list justify-content-md-end justify-content-center">
+                      <li class="breadcrumb-item"><a href="index.html">首页</a></li>
+                       {{ #articleSingle.category }}
+									<li  class="breadcrumb-item active">{{&.}}</li>
+									{{ /articleSingle.category }}
+                      
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- Banner Area End -->
+        <!-- Blog Details Area Start -->
+        <div class="blog-details-area ptb-150">
+            <div class="container">
+                <div class="row">
+                    <!-- Blog Details Start -->
+                    <div class="col-lg-8">
+                        <div class="blog-details">
+                            <div class="blog-hero-img mb-40">
+                                <img class="full-img" src=" {{ &articleSingle.img }}" alt="{{ &articleSingle.title }}">
+                            </div>
+                            <ul class="meta-box d-flex details-meta">
+                                    <li class="meta-date"><span><i class="fa fa-calendar" aria-hidden="true"></i>{{ &articleSingle.createDate10 }}</span></li>
+                                   
+                                    {{ #articleSingle.category }}
+									<li><i class="fa fa-inbox" aria-hidden="true"></i>	<a href="/category/{{&.}}" rel="category tag">{{&.}}</a></li>
+									{{ /articleSingle.category }}
+                                   
+                                    
+                                </ul>
+                            <div class="text-upper-portion">
+                                <h3 class="blog-dtl-header portfolio-header">{{ &articleSingle.title }}</h3>
+                                <p class="mb-20">{{ &articleSingle.contentHtml }}</p>
+                            </div>
+
+
+
+                            
+                            <div class="tags-social d-sm-flex justify-content-sm-between justify-content-center">
+                                <div class="tags">
+                                    <ul class="d-flex mb-sm-15">
+                                    	
+                                        <li class="t-list">Tags:</li>
+                                        {{ #articleSingle.tags }}
+										<li><a href="/tags/{{&.}}" rel="tag">{{&.}}</a></li>
+									   {{ /articleSingle.tags }}
+                                       
+                                    </ul>
+                                </div>
+                                <div class="blog-social">
+                                    <ul class="d-flex">
+                                        <li class="t-list">Share:</li>
+                                        <li><a href="#">Facebook,</a></li>
+                                        <li><a href="#">Twetter,</a></li>
+                                        <li><a href="#">Google+</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="blog-pagination">
+                                <ul class="pagination">
+                                    {{ #articleNewer }}
+                                    <li><a href="{{ &url }}" title="{{ &title }}" rel="prev" >
+											<i class="fa fa-long-arrow-left" aria-hidden="true"></i><span>上一篇：</span><span>{{ &title }}</span></a></li>
+                                    {{ /articleNewer }}
+
+									{{ #articleOlder }}
+                                    <li class="ml-auto"><a href="{{ &url }}" title="{{ &title }}" rel="next" >
+											<span>下一篇：</span><span>{{ &title }}</span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                                    {{ /articleOlder }}
+                                </ul>
+                            </div>
+                            <!-- Comment Area Start -->
+                            <div class="comments-area pt-90">
+                               <h3 class="sidebar-header">comments</h3>
+                                <!-- Single Comment Start -->
+                                <div class="single-comment">
+
+                                    <div class="comment-desc">
+                                        <div class="comment-upper d-flex justify-content-between align-items-center">
+                                           {{ &OPT.commentCode }}
+                                        </div>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <!-- Single Comment End -->
+                            </div>
+                            <!-- Comment Area End -->
+                            <!-- Blog Deatils Contact Start -->
+                            <div class="blog-detail-contact">
+                                <h3 class="mb-45 leave-reply">Leave a Reply</h3>
+                                <div class="submit-review">
+                                    <form class="row">
+                                        <div class="form-group col-sm-6">
+                                            <input class="form-control" placeholder="Name" type="text">
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <input class="form-control" placeholder="Email" type="email">
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <textarea class="form-control" placeholder="Message"></textarea>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input value="send now" class="transparent-btn blue-btn send-now" type="submit">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Blog Deatils Contact End -->
+                        </div>
+                    </div>
+                    <!-- Blog Details End -->
+                    <!-- Blog Sidebar Start -->
+                    <div class="col-lg-4">
+                        <div class="blog-sidebar right-sidebar mt-all-80">
+                            <!-- Search Box Start -->
+                            <div class="newsletter-box sidebar-search-box">
+                                <h3 class="sidebar-header">Search</h3>
+                                <form action="#">
+                                    <input class="subscribe" placeholder="Enter Keywords" name="email" id="subscribe" type="text">
+                                    <button type="submit" class="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+                            <!-- Search Box End -->
+                            <!-- Category Post Start -->
+                            <div class="categorie recent-post mb-60">
+                                <h3 class="sidebar-header">分类目录</h3>
+                                <ul class="categorie-list">
+                                    
+                                    {{ #widgetCategoryList }}
+                                    <li><a href="/category/{{&.}}">{{&.}}<span>(20)</span></a></li>
+                                    {{ /widgetCategoryList }}
+                                   
+                                </ul>
+                            </div>
+                            <!-- Category Post End -->
+                            <!-- Recent Post Start -->
+                            <div class="recent-post mb-60">
+                                <h3 class="sidebar-header">近期文章</h3>
+                                <div class="all-recent-post">
+                                    {{ #widgetRecentlyList }}
+                                    <div class="single-recent-post">
+                                        <div class="recent-img">
+                                            <a href="{{ &url }}"><img src="{{ &img }}" alt="blog-img"></a>
+                                        </div>
+                                        <div class="recent-desc">
+                                            <span>{{ &createDate10 }}</span>
+                                            <h6><a href="{{ &url }}">{{ &title }}</a></h6>
+                                        </div>
+                                    </div>
+                                    {{ /widgetRecentlyList }}
+
+                                </div>
+                            </div>
+                            <!-- Recent Post End -->
+
+                            <!-- Meta Post Start -->
+                            <div class="categorie recent-post">
+                                <h3 class="sidebar-header">标签</h3>
+                                <ul class="tag-list d-flex flex-wrap">
+                                
+                                {{ #widgetTagsList }}
+							 <li><a href="/tags/{{&.}}">{{&.}}</a></li>
+							{{ /widgetTagsList }}
+                                </ul>
+                            </div>
+                            <!-- Meta Post End -->
+                        </div>
+                    </div>
+                    <!-- Blog Sidebar End -->
+                </div>
+            </div>
+        </div>
+        <!-- Blog Details Area End -->
+        <!-- Footer Start -->
+        <footer class="footer-area ptb-100 dark-black-bg">
+            <div class="container">
+                <div class="footer-top text-center">
+                    <div class="logo mb-30">
+                        <a href="index.html"><img src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/img/logo.png" alt="brand-logo"></a>
+                    </div>
+                    <p>欢迎来到卢卡东契奇粉丝团.</p>
+                </div>
+                <!-- Footer Bottom Start -->
+                <div class="footer-bottom">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="copyright-text mb-sm-30 text-center text-md-left">
+                                <p>{{ &OPT.copyRight }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="social-footer d-flex justify-content-center justify-content-lg-end">
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Bottom End -->
+            </div>      
+        </footer>
+        <!-- Footer End -->
+
+    </div>
+    <!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/vendor/jquery-3.2.1.min.js"></script>
+    <!-- animate headline js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/animated-headline.js"></script>
+    <!-- youtube player js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- jquery appear js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/jquery.appear.js"></script>
+     <!-- Particle scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/particles.min.js"></script>
+    <!-- Parallax scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/jquery.parallax-1.1.3.js"></script>
+    <!-- Wow js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/wow.min.js"></script>
+    <!-- Mobile menu js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/jquery.meanmenu.min.js"></script>
+    <!-- ScrollUp js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/jquery.scrollUp.js"></script>
+    <!-- Image loaded js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/imagesloaded.pkgd.min.js"></script>
+    <!-- Isotope js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/isotope.pkgd.min.js"></script>
+    <!-- Magnific js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/jquery.magnific-popup.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/owl.carousel.min.js"></script>
+    <!-- Bootstrap popper js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/bootstrap.min.js"></script>
+    <!-- Plugin js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/plugins.js"></script>
+    <!-- Main activaion js -->
+    <script src="https://cdn.jsdelivr.net/gh/Y560H/cloudflare-workers-blog@1.0/themes/luka/js/main.js"></script>
+    
+</body>
+
+</html>
